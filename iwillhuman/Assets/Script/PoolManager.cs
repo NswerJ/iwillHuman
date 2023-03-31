@@ -18,7 +18,6 @@ public class PoolManager : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(poolObj); //풀링할 옵젝 생성
-                                                   //Instantiate는 플레이 중 실행이 되면 성능 저하가 일어나기에 실행 전에 실행한다
             list.Add(obj); //리스트에 풀링할 옵젝을 추가
             list[i].transform.SetParent(transform); //리스트에 i번째 풀링할 옵젝을 자식으로
             list[i].gameObject.SetActive(false);
@@ -36,9 +35,10 @@ public class PoolManager : MonoBehaviour
     }
 
     public void Push(GameObject obj) //넣어주기
-    {//obj == 풀링할 옵젝(poolObj)
-        obj.transform.SetParent(transform); //다시 obj를 자식으로 만든다
+    {
+        //obj == 풀링할 옵젝(poolObj)
         list.Add(obj); //리스트에 obj를 추가
+        obj.transform.SetParent(transform); //다시 obj를 자식으로 만든다
         obj.gameObject.SetActive(false);
     }
 
