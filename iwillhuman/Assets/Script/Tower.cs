@@ -22,8 +22,13 @@ public class Tower : MonoBehaviour
         {
             GameObject b = PoolManager.instance.Pop(bullet);
             b.transform.position = transform.position;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
+            GameObject a = PoolManager.instance.Pop(bullet);
+            a.transform.position = transform.position;
+            yield return new WaitForSeconds(2f);
             PoolManager.instance.Push(b);
+            yield return new WaitForSeconds(2f);
+            PoolManager.instance.Push(a);
         }
     }
 }
