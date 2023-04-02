@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _distance, _layermask);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one, 0, Vector2.down, _distance,_layermask);
         if(hit && Input.GetKeyDown(KeyCode.Space))
         {
             _rigid.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);

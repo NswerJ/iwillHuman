@@ -12,8 +12,8 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        Vector2 dir = Vector2.left;
-        transform.Translate(dir * Time.deltaTime * Random.Range(1f, 10f));
+        //Vector2 dir = Vector2.left;
+        //transform.Translate(dir * Time.deltaTime * Random.Range(1f, 10f));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
